@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ACTION="unmute"
+STATE=$(amixer get Master 2> /dev/null | tail -1 | cut -d " " -f 8)
+
+if [ $STATE = "[on]" ]; then
+    ACTION="mute";
+fi
+
+amixer -c 0 set Master "$ACTION" 2> /dev/null

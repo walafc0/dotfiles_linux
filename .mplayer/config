@@ -1,0 +1,27 @@
+# General options
+lavdopts = threads=2
+nolirc=1
+framedrop=1
+
+# Stream
+cache=16984
+cache-min=35
+cache-seek-min=75
+
+# Lang / Sub
+slang=en,fr,fra,fre
+alang=en,fr,fra,fre
+subfont-text-scale=3
+
+# Vol
+ao="alsa"
+softvol=yes
+softvol-max=150
+
+# Codec
+vfm=ffmpeg
+afm=ffmpeg
+
+# MKV options
+correct-pts=1
+embeddedfonts=1

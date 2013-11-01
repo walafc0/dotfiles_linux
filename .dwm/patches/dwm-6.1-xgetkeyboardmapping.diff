@@ -1,0 +1,16 @@
+diff --git a/dwm.c b/dwm.c
+index 314adf4..d76cdf3 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -978,9 +978,10 @@ keypress(XEvent *e) {
+ 	unsigned int i;
+ 	KeySym keysym;
+ 	XKeyEvent *ev;
++	int keysyms_per_keycode_return;
+ 
+ 	ev = &e->xkey;
+-	keysym = XKeycodeToKeysym(dpy, (KeyCode)ev->keycode, 0);
++	keysym = *XGetKeyboardMapping(dpy, (KeyCode)ev->keycode, 1, &keysyms_per_keycode_return);
+ 	for(i = 0; i < LENGTH(keys); i++)
+ 		if(keysym == keys[i].keysym
+ 		&& CLEANMASK(keys[i].mod) == CLEANMASK(ev->state)

@@ -1,0 +1,12 @@
+(defun toggle-comment-on-line ()
+  "comment or uncomment current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+
+(global-set-key (kbd "C-x :") 'toggle-comment-on-line)
+(global-set-key (kbd "C-x /") 'comment-or-uncomment-region)
+
+
+(setq backup-by-copying t backup-directory-alist '(("." . "~/.emacs.d/backup"))
+   delete-old-versions t kept-new-versions 6 kept-old-versions 2
+   version-control t)

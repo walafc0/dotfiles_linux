@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mplayer -user $1 -passwd $2 -prefer-ipv4 $3
+
