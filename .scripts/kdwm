@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DWM_D=$HOME/.dwm
+DWM_P=$(pidof dwm)
+
+cd $DWM_D
+makepkg -g >> PKGBUILD
+makepkg -efi --noconfirm
+
+if [ ! -z DWM_PID ]; then
+  kill -9 $DWM_P
+fi
+
+cd $HOME
+exit

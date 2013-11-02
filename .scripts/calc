@@ -1,0 +1,4 @@
+#!/bin/bash
+
+libreoffice --calc &
+exit
