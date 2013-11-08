@@ -32,6 +32,7 @@ fi
 
 export EDITOR=emacs
 export PAGER=most
+export LD_PRELOAD=/lib/libtsocks.so
 
 alias ls='ls --color=auto'
 alias ping='ping -c5'
