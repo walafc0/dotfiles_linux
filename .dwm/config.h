@@ -66,7 +66,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[]      = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]       = { "urxvt", "-title", "urxvt", NULL };
-static const char *irssicmd[]      = { "urxvt", "-title", "irssi", "-e", "ssh", "walafc0@kim", "-t", "screen", "-rd", NULL };
+static const char *irssicmd[]      = { SCRIPTS_DIR"/mirssi", NULL };
 static const char *uzblcmd[]       = { "uzbl-tabbed", NULL };
 static const char *cmuscmd[]	   = { "urxvt", "-title", "cmus", "-e", SCRIPTS_DIR"/cmus", NULL };
 static const char *tunnelcmd[]	   = { "urxvt", "-title", "tunnel", "-e", SCRIPTS_DIR"/tunnel", NULL };
