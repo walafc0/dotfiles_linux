@@ -32,7 +32,12 @@ fi
 
 export EDITOR=emacs
 export PAGER=most
-export LD_PRELOAD=/lib/libtsocks.so
+export DEJAGNU=~/.dejagnurc
+# export LD_PRELOAD=/lib/libtsocks.so
+
+export XDG_CONFIG_HOME=~/.config
+export XDG_DATA_HOME=~/.local/share
+export XDG_CACHE_HOME=~/.cache
 
 alias ls='ls --color=auto'
 alias ping='ping -c5'
