@@ -1,4 +1,12 @@
 #!/bin/bash
 
-mplayer -user $1 -passwd $2 -prefer-ipv4 $3
+USER=$1
+shift
+PASS=$1
+shift
+ALL=$@
+
+mplayer -prefer-ipv4 \
+    -user $USER -passwd $PASS \
+    $ALL
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PLAYER=$(whereis mplayer | cut -d' ' -f 2)
+
+if [ -z $DISPLAY ]; then
+  $PLAYER -vo fbdev2 -fs -zoom -x 1280 -y 800 "$@"
+else
+  $PLAYER "$@"
+fi
