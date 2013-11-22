@@ -8,7 +8,8 @@ URxvt.cursorBlink:	false
 URxvt.scrollBar:	off
 URxvt.scrollstyle:	plain
 URxvt.internalBorder: 	0
-URxvt.font:		xft:Monospace:size=9
+! URxvt.font:		xft:Monospace:size=9
+URxvt.font:		xft:Inconsolata:size=10
 
 ! URxvt Perl extentions:
 URxvt.perl-ext-common:	default,clipboard,matcher,keyboard-select
