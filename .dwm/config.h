@@ -75,6 +75,7 @@ static const char *volup[]         = { "amixer", "-q", "sset", "Master", "5%+", 
 static const char *voldown[]       = { "amixer", "-q", "sset", "Master", "5%-", "unmute", NULL };
 static const char *mutecmd[]       = { SCRIPTS_DIR"/mute", NULL };
 static const char *pausecmd[]      = { "urxvt", "-e", "cmus-remote", " -u", NULL };
+static const char *slockcmd[]      = { "slock", NULL };
 
 /* TODO: create an header for this patch */
 #include "movestack.c"
@@ -117,6 +118,8 @@ static Key keys[] = {
 	/* Allow to switch windows location between us */
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
         { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+	/* Lock screen */
+	{ MODKEY,			XK_s,	   spawn,	   {.v = slockcmd } },
 
 #define PLAYPAUSE_KEY 0x1008ff2f
 #define MUTE_KEY 0x1008ff12 
