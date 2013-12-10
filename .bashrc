@@ -8,7 +8,7 @@ CYAN="\[\033[0;36m\]"
 DEFAULT="\[\033[0m\]"
 PS1="$CYAN[\u@\h \W]$DEFAULT "
 
-SCRIPTS_DIR=$HOME/.scripts
+export SCRIPTS_DIR=$HOME/.scripts
 
 function contains()
 {

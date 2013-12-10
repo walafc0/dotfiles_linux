@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 USER=$1
 shift
@@ -6,7 +6,8 @@ PASS=$1
 shift
 ALL=$@
 
-mplayer -prefer-ipv4 \
-    -user $USER -passwd $PASS \
+mplayer \
+    -user   $USER \
+    -passwd $PASS \
     $ALL
 

@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# This script MUST BE called only by mplayer script
+
+# Input: all arguments given to $SCRIPTS_DIR/mplayer
+# Ouput: current title/artist song's is write in "now playing" file
+
+
+# Declare all music extensions in an array
+declare -a AUDIO_EXT=('mp3' 'flac' 'ogg')
+START=0
+END=${#AUDIO_EXT[@]}
+
+
+# Find filename in arguments
+# TODO: better research. If one argument contains any substring of
+# AUDIO_EXT[], there will be a bug
+for i in "$@"
+do
+  for j in $(eval echo "{$START..$END}")
+  do
+    HAYSTACK="$i"
+    NEEDLE="${AUDIO_EXT[$j]}"
+    if test "${HAYSTACK#*$NEEDLE}" != "$HAYSTACK"; then
+	ARG="$i"
+	break
+    fi
+  done
+done
+
+# If no music file, return in mplayer script
+if [ -z "$ARG" ]; then
+  return 1
+fi
+
+# Get filename and extension
+FILE=$(basename "$ARG")
+F_EXT="${FILE##*.}"
+FILE="${FILE%.*}"
+
+# Get infos
+TITLE=$(mediainfo "$ARG" 2> /dev/null | grep "Track name" | cut -d':' -f 2 | head -n 1)
+ARTIST=$(mediainfo "$ARG" 2> /dev/null | grep "Performer" | cut -d':' -f 2)
+
+if [ -z "$TITLE" ]; then
+    TITLE=" Unknown title"
+fi
+if [ -z "$ARTIST" ]; then
+    ARTIST=" Unknow artist"
+fi
+
+# Write infos
+FINAL="[mplayer]$TITLE -$ARTIST |"
+echo "$FINAL" > $PLAYING_FILE
+
+# Back to mplayer
+return 0

@@ -2,11 +2,13 @@
 lavdopts = threads=2
 nolirc=1
 framedrop=1
+vo=xv
 
 # Stream
-cache=16984
+cache=8192
 cache-min=35
 cache-seek-min=75
+prefer-ipv4=yes
 
 # Lang / Sub
 slang=en,fr,fra,fre
