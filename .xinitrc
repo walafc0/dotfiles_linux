@@ -22,7 +22,7 @@ do
         VOL="$VOL [muted]"
     fi
 
-    LOCALTIME=$( date +"%m/%d/%y %R" )
+    LOCALTIME=$( date +"%m/%d/%Y %R" )
     IP=$(for i in `ip r`; do echo $i; done | grep -A 1 src | tail -n1)
     TEMP="$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))C"
     xsetroot -name "$PLAYER $IP | Temp:$TEMP | Vol:$VOL | $LOCALTIME"
@@ -30,11 +30,11 @@ do
 done &
 
 wmname LG3D
-feh --bg-center $HOME/Gallery/wallpaper.jpg
+feh --bg-max $HOME/Gallery/wallpaper
 setxkbmap -layout fr -option terminate:ctrl_alt_bksp
 numlockx on
 
 # Add $PATH to dmenu
-export PATH=$PATH:$HOME/.scripts
+export PATH=$HOME/.scripts:$PATH
 
 exec /usr/bin/dwm &> $HOME/.dwm/log
