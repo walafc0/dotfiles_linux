@@ -1,4 +1,4 @@
 #!/bin/bash
 
-libreoffice --writer &
+libreoffice --writer
 exit

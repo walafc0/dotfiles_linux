@@ -29,13 +29,15 @@ static const Rule rules[] = {
 	{ "libreoffice-writer", NULL, NULL,   1 << 1,       False,       -1 },
 	{ "Zathura",  NULL,       NULL,       1 << 1,       False,       -1 },
         { NULL, NULL,       "root@localgh0st",1 << 2,       False,       -1 },
+	{ NULL, "qemu-system-x86_64", NULL,   1 << 5,       True,        -1 },
+	{ NULL, "pcsxr",          NULL,       1 << 5,       True,        -1 },
 	{ NULL,	      NULL,       "irssi",    1 << 6,       False,       -1 },
 	{ NULL,	      NULL,       "turses",   1 << 6,       False,       -1 },
 	{ NULL,       NULL,       "cmus",     1 << 7,       False,       -1 },
         { "MPlayer",  NULL,       NULL,       1 << 7,       True,        -1 },
+	{ NULL,       "pokerth",  NULL,       1 << 7,       True,        -1 },
 	{ "Easytag",  NULL,       NULL,       1 << 7,       False,       -1 },
 	{ NULL,       NULL,       "tunnel",   1 << 8,       False,       -1 },
-	{ NULL, "qemu-system-x86_64", NULL,   1 << 5,       True,        -1 }
 };
 
 /* layout(s) */
