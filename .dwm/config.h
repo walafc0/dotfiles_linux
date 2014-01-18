@@ -34,6 +34,7 @@ static const Rule rules[] = {
 	{ NULL,	      NULL,       "irssi",    1 << 6,       False,       -1 },
 	{ NULL,	      NULL,       "turses",   1 << 6,       False,       -1 },
 	{ NULL,       NULL,       "cmus",     1 << 7,       False,       -1 },
+	{ "Adl",      NULL,       NULL,     1 << 7,       False,       -1 },
         { "MPlayer",  NULL,       NULL,       1 << 7,       True,        -1 },
 	{ NULL,       "pokerth",  NULL,       1 << 7,       True,        -1 },
 	{ "Easytag",  NULL,       NULL,       1 << 7,       False,       -1 },

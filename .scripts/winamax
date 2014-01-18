@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/opt/adobe-air-sdk/bin/adl -nodebug /opt/airapps/winamax/META-INF/AIR/application.xml /opt/airapps/winamax/ &
