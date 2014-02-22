@@ -1,5 +1,5 @@
 # General options
-lavdopts = threads=2
+lavdopts=threads=2
 nolirc=1
 framedrop=1
 vo=xv
@@ -11,8 +11,8 @@ cache-seek-min=75
 prefer-ipv4=yes
 
 # Lang / Sub
-slang=en,fr,fra,fre
-alang=en,fr,fra,fre
+slang=en,eng,fr,fra,fre
+alang=en,eng,fr,fra,fre
 subfont-text-scale=3
 
 # Vol

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+WLAN=wlp2s0
+ESSID=FreeWifi
+MAC=56:ab:4b:06:1a:99
+
+sudo killall dhcpcd
+sudo iwconfig $WLAN essid $ESSID ap $MAC key open
+sudo dhcpcd -4 $WLAN -C 10-wpa_supplicant -d 

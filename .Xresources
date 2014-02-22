@@ -1,7 +1,7 @@
 ! General options
 URxvt.*termName:	rxvt
-! URxvt.background:	#191919
-URxvt*transparent:	true
+ URxvt.background:	#191919
+!URxvt*transparent:	true
 URxvt*.shading: 	30
 URxvt.foreground:	#615a5a
 URxvt.cursorColor:	#005577

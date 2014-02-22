@@ -1,0 +1,12 @@
+#!/bin/bash
+
+WLAN=wlp2s0
+DRIVER=wext
+
+# See this link for configuration and certificat
+# http://www.eduroam.upmc.fr/doc/config/unix-eduroam-ttls.htm
+CONF=/etc/wpa_supplicant/wpa_supplicant.conf
+CERT=/root/radius.cert
+
+sudo systemctl restart dhcpcd.service
+sudo wpa_supplicant -i $WLAN -D $DRIVER -c $CONF -d -B
