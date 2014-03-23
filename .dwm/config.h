@@ -23,6 +23,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Uzbl",     NULL,       NULL,       1 << 0,       False,       -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 0,       False,       -1 },
+	{ "Chromium", NULL,       NULL,       1 << 0,       False,       -1 },
         { "Gimp",     NULL,       NULL,       1 << 1,       True,        -1 },
         { "Xsane",    NULL,       NULL,       1 << 1,       True,        -1 },	
 	{ "libreoffice-calc", NULL, NULL,     1 << 1,       False,       -1 },
