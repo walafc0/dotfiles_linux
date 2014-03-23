@@ -1,2 +1,2 @@
 #/bin/bash
-import -window root screen-$(date +"%m%d%y-%H%M%S").png
+cd /tmp && import -window root screen-$(date +"%m%d%y-%H%M%S").png
