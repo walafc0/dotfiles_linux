@@ -8,5 +8,10 @@ DRIVER=wext
 CONF=/etc/wpa_supplicant/wpa_supplicant.conf
 CERT=/root/radius.cert
 
-sudo systemctl restart dhcpcd.service
+# Prepare device and kill previous session
+sudo killall wpa_supplicant
+sudo ifconfig wlp2s0 up
+
+# Start dhcpcd and wpa_supplicant
 sudo wpa_supplicant -i $WLAN -D $DRIVER -c $CONF -d -B
+sudo systemctl restart dhcpcd.service

@@ -6,6 +6,7 @@ vo=xv
 
 # Stream
 cache=8192
+# cache=16384
 cache-min=35
 cache-seek-min=75
 prefer-ipv4=yes
@@ -14,6 +15,7 @@ prefer-ipv4=yes
 slang=en,eng,fr,fra,fre
 alang=en,eng,fr,fra,fre
 subfont-text-scale=3
+subcp=utf8
 
 # Vol
 ao="alsa"
