@@ -3,15 +3,8 @@
 PLAYER=$(whereis mplayer | cut -d' ' -f 2)
 
 if [ -z $DISPLAY ]; then
+  # TOFIX: resolution
   $PLAYER -vo fbdev2 -fs -zoom -x 1280 -y 800 "$@"
 else
-  # Display title/artist on dmenu
-  export PLAYING_FILE=~/.cmus/now-playing
-  source $SCRIPTS_DIR/dmenu_mplayer_display "$@"
-  # Start player
   $PLAYER "$@"
-  # Reset playing file for dmenu
-  echo "" > $PLAYING_FILE
 fi
-
-

@@ -73,6 +73,7 @@ static const char *dmenucmd[]      = { "dmenu_run", "-fn", font, "-nb", normbgco
 static const char *termcmd[]       = { "urxvt", "-title", "urxvt", NULL };
 static const char *irssicmd[]      = { SCRIPTS_DIR"/irssi", NULL };
 static const char *uzblcmd[]       = { "uzbl-tabbed", NULL };
+static const char *chromiumcmd[]   = { "chromium", NULL };
 static const char *cmuscmd[]	   = { "urxvt", "-title", "cmus", "-e", SCRIPTS_DIR"/cmus", NULL };
 static const char *tunnelcmd[]	   = { "urxvt", "-title", "tunnel", "-e", SCRIPTS_DIR"/tunnel", NULL };
 static const char *roottermcmd[]   = { "urxvt", "-title", "root@localgh0st", "-e", "su", "root", NULL };
@@ -117,7 +118,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
 	{ MODKEY,			XK_i,	   spawn,	   {.v = irssicmd } },
-	{ MODKEY,			XK_u,	   spawn,	   {.v = uzblcmd } },
+	{ MODKEY,			XK_u,	   spawn,	   {.v = chromiumcmd } },
 	{ MODKEY,			XK_c,	   spawn,	   {.v = cmuscmd } },
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   {.v = tunnelcmd } },
 	/* Allow to switch windows location between us */

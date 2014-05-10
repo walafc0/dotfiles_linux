@@ -1,0 +1,15 @@
+#!/bin/bash
+
+CONF_DIR=/etc/openvpn/$HOSTNAME
+
+if ! screen -rD vpn >/dev/null ; then
+  screen -S vpn $0 $1
+else
+ cd $CONF_DIR
+ if [ "$1" = "fac" ]; then
+   CONF_FILE=client_fac.conf
+ else
+   CONF_FILE=client.conf
+  fi
+   sudo openvpn $CONF_FILE
+fi

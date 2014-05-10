@@ -5,5 +5,6 @@ ESSID=FreeWifi
 MAC=56:ab:4b:06:1a:99
 
 sudo killall dhcpcd
-sudo iwconfig $WLAN essid $ESSID ap $MAC key open
+sudo iwconfig $WLAN essid $ESSID key open ap $MAC
+sleep 1
 sudo dhcpcd -4 $WLAN -C 10-wpa_supplicant -d 

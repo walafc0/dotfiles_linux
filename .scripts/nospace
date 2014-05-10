@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for a in *; do
+  b=$(echo $a | sed -e 's/[[:blank:]]/./g')
+  if [ -e "$b" ];then
+    echo ""> /dev/null
+  else
+    mv "$a" "$b"
+  fi
+done 

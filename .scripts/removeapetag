@@ -1,3 +1,17 @@
 #!/bin/bash
 
-find /home/walafc0/Music -iname "*.mp3" -exec apetag -i {} -m overwrite \;
+MUSIC=~/Music
+
+del_tag()
+{
+  find $MUSIC -iname \"*"$1"\" -exec apetag -i {} -m overwrite \;
+}
+
+if [ "$1" == "mp3" ]; then
+  del_tag mp3
+elif [ "$1" == "flac" ]; then
+  del_tag flac
+else
+  del_tag mp3 
+  del_tag flac
+fi

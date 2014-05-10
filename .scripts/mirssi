@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ -z $DISPLAY ]; then
-  ssh irssi@kim -t screen -rd
-else
-  urxvt -title irssi -e ssh irssi@kim -t screen -rd &
-fi
-
-exit

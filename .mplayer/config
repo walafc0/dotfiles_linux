@@ -16,6 +16,9 @@ slang=en,eng,fr,fra,fre
 alang=en,eng,fr,fra,fre
 subfont-text-scale=3
 subcp=utf8
+subfont-text-scale = "2"
+subfont-blur = "4"
+subfont-outline = "4"
 
 # Vol
 ao="alsa"
