@@ -6,5 +6,14 @@ if [ ! -z $1 ]; then
   export ftp_proxy=ftp://proxy.ufr-info-p6.jussieu.fr:3128
   export HTTP_PROXY=$http_proxy
   export HTTPS_PROXY=$https_proxy
+  $1=fac
 fi
+
 sudo systemctl start dhcpcd
+
+while [ -z $IP ]; do
+  IP=$(for i in `ip r`; do echo $i; done | grep -A 1 src | tail -n1)
+  sleep 1
+done
+
+$SCRIPTS_DIR/vpn $1

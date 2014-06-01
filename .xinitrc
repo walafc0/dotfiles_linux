@@ -22,8 +22,22 @@ do
         VOL="$VOL [muted]"
     fi
 
+    if [ $(pidof openvpn) ]; then
+      IP=$(ip r | grep 94 | awk '{print $1}')
+      if [ -z $IP ]; then
+        IP="Connecting..."
+      else
+        IP="$IP [vpn on]"
+      fi
+    else
+      IP=$(for i in `ip r`; do echo $i; done | grep -A 1 src | tail -n1)
+      IP="$IP [vpn off]"
+    fi
+    if [ -z $IP ]; then
+      IP="Not connected"
+    fi
+
     LOCALTIME=$( date +"%a %m/%d/%Y %R" )
-    IP=$(for i in `ip r`; do echo $i; done | grep -A 1 src | tail -n1)
     TEMP1="$(($(cat /sys/class/hwmon/hwmon0/device/temp2_input) / 1000))"
     TEMP2="$(($(cat /sys/class/hwmon/hwmon0/device/temp4_input) / 1000))"
     TEMP="$(bc -q <(echo -e "scale=1\n ($TEMP1+$TEMP2)/2\n quit"))°C"
@@ -33,19 +47,17 @@ do
       BATTERYSTATE="unplugged"
     fi
 
-    if [ -z $IP ]; then
-      IP="Not connected"
-    fi
-
     xsetroot -name "$PLAYER $IP | Battery: $BATTERYSTATE | Temp:$TEMP | Vol:$VOL | $LOCALTIME"
     sleep 1s
 done &
 
 wmname LG3D
-#feh --bg-scale $HOME/Pictures/wallpaper
+feh --bg-max $HOME/Pictures/wallpaper
 setxkbmap -layout fr -option terminate:ctrl_alt_bksp
+urxvtd -q -f -o
 
 # Add $PATH to dmenu
-export PATH=$HOME/.scripts:$PATH
+export PATH=$SCRIPTS_DIR:$PATH
+export SUDO_ASKPASS=$SCRIPTS_DIR/dmenu_passwd
 
 exec /usr/bin/dwm &> $HOME/.dwm/log

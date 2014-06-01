@@ -120,10 +120,14 @@ function maketar()
 export TERM=rxvt-256color
 export SCRIPTS_DIR=~/.scripts
 export EDITOR=emacs
+export PAGER=most
+export DEJAGNU=~/.dejagnurc
 
 export XDG_CONFIG_HOME=~/.config
 export XDG_DATA_HOME=~/.local/share
 export XDG_CACHE_HOME=~/.cache
+
+
 
 # TODO: do this export when tsock is used
 #export LD_PRELOAD=/lib/libtsocks.so
