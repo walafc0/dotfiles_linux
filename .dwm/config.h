@@ -40,6 +40,7 @@ static const Rule rules[] = {
 	{ NULL,       "pokerth",  NULL,       1 << 7,       True,        -1 },
 	{ "Easytag",  NULL,       NULL,       1 << 7,       False,       -1 },
 	{ NULL,       NULL,       "tunnel",   1 << 8,       False,       -1 },
+	{ NULL,       NULL,       "trash",    1 << 8,       False,       -1 },
 };
 
 /* layout(s) */

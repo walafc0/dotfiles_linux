@@ -8,4 +8,4 @@ else
     CONF_FILE=client.conf
 fi
 
-sudo urxvt -e sudo screen -US vpn -d -m $SCRIPTS_DIR/vpn_cmd $CONF_FILE
+sudo urxvt -T trash -e sudo screen -US vpn -d -m $SCRIPTS_DIR/vpn_cmd $CONF_FILE
