@@ -15,16 +15,19 @@ fi
 DMENU=$HOME/.dmenu
 while true;
 do
-    PLAYER=$(cat $HOME/.cmus/now-playing)
-
+    # Top bar
     NETWORK=$($DMENU/network.sh)
     LOCALTIME=$($DMENU/localtime.sh)
     POWER=$($DMENU/power.sh)
     TEMP=$($DMENU/temp.sh)
     VOL=$($DMENU/vol.sh)
     BRIGHT=$($DMENU/bright.sh)
+    # Bottom bar
+    PLAYER=$($DMENU/player.sh)
+    RESOURCES=$($DMENU/resources.sh)
 
-    xsetroot -name "$NETWORK | $POWER | $TEMP | $VOL | $BRIGHT | $LOCALTIME;$PLAYER"
+    xsetroot -name "$NETWORK | $POWER | $TEMP | $VOL | $BRIGHT | $LOCALTIME;$RESOURCES | $PLAYER"
+
     sleep 1s
 done &
 
