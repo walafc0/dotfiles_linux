@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# TRACK=$(cat $HOME/.cmus/now-playing)
+if test "X`pgrep cmus`" != "X" ; then
 
-# echo "$TRACK"
+  STATUS=$(cmus-remote -Q | grep status | awk '{print $2}')
 
-if test "X`pgrep cmus`" != "X" ; then 
+  if [ $STATUS == "stopped" ]; then
+    exit 0
+  fi
+
     TIME="$(cmus-remote -Q |awk '/duration/ {print $2}')"
     
     if [ $TIME -gt 59 ]; then 
@@ -31,5 +34,11 @@ if test "X`pgrep cmus`" != "X" ; then
     RPT="$(cmus-remote -Q |sed -ne '/repeat_current/s/set repeat_current //pg')"
     RPT="Repeat: $RPT"
 
-    echo "$NUM - $TITLE - $ARTIST on $ALBUM - $CURR/$TIME - $SHUFF - $RPT"
+    if [ $STATUS = "paused" ]; then
+      echo "$NUM - $TITLE - $ARTIST on $ALBUM - $CURR/$TIME - $SHUFF - $RPT - $STATUS"
+    else
+	echo "$NUM - $TITLE - $ARTIST on $ALBUM - $CURR/$TIME - $SHUFF - $RPT"
+    fi
 fi
+
+exit 0
