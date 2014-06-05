@@ -11,7 +11,7 @@ else
   VPN="[vpn off]"
 fi
 
-DEV="$(ip r | tail -n1 | awk '{print $3}')"
-NET="$IP - $DEV $VPN"
+DEV="$(ip r | grep kernel | tail -n1 | awk '{print $3}')"
+NET="$IP on $DEV $VPN"
 echo $NET
 
