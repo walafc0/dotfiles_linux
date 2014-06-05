@@ -14,7 +14,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int minwsz    = 20;       /* Minimal heigt of a client for smfact */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
-static const Bool extrabar          = True;     /* False means no extra bar */
+static const Bool extrabar          = True;     /* False means no extra bar */ 
 
 /* tagging */
 static const char *tags[] = { "Web", "Docs", "Term", "4", "5", "VM", "IRC", "Multimedia", "Trash" };
@@ -94,7 +94,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = roottermcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
+	{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
