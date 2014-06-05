@@ -58,6 +58,10 @@ if test "X`pgrep cmus`" != "X" ; then
       FINAL="$FINAL - $OPT"
       echo $FINAL
     fi
+elif test "X$(pgrep mplayer)" != "X" ; then
+  FILE=$(basename $(ps aux | grep mplayer | grep -v grep | head -n1 | awk '{print $NF}'))
+  FINAL="Playing: $FILE"
+  echo $FINAL
 fi
 
 exit 0
