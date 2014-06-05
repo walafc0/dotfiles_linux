@@ -30,14 +30,33 @@ if test "X`pgrep cmus`" != "X" ; then
     ALBUM="$(cmus-remote -Q |sed -ne '/album/s/tag album //pg')"
 
     SHUFF="$(cmus-remote -Q |sed -ne '/shuffle/s/set shuffle //pg')"
-    SHUFF="Shuffle: $SHUFF"
     RPT="$(cmus-remote -Q |sed -ne '/repeat_current/s/set repeat_current //pg')"
-    RPT="Repeat: $RPT"
+    STATUS=$(cmus-remote -Q | grep status | awk '{print $2}')
 
+    if [ $SHUFF = "true" ]; then
+      OPT="Shuffle"
+    fi
+    if [ $RPT = "true" ]; then
+      if [ -z $OPT ]; then
+	OPT="Repeat"
+      else
+        OPT="$OPT|Repeat"
+      fi
+    fi
     if [ $STATUS = "paused" ]; then
-      echo "$NUM - $TITLE - $ARTIST on $ALBUM - $CURR/$TIME - $SHUFF - $RPT - $STATUS"
+      if [ -z $OPT ]; then
+        OPT="Paused"
+      else
+        OPT="$OPT|Paused"
+      fi
+    fi
+    
+    FINAL=$(echo "$NUM - $TITLE by $ARTIST on $ALBUM - $CURR/$TIME")
+    if [ -z $OPT ]; then
+      echo $FINAL
     else
-	echo "$NUM - $TITLE - $ARTIST on $ALBUM - $CURR/$TIME - $SHUFF - $RPT"
+      FINAL="$FINAL - $OPT"
+      echo $FINAL
     fi
 fi
 
