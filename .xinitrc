@@ -22,8 +22,9 @@ do
     POWER=$($DMENU/power.sh)
     TEMP=$($DMENU/temp.sh)
     VOL=$($DMENU/vol.sh)
+    BRIGHT=$($DMENU/bright.sh)
 
-    xsetroot -name "$PLAYER $NETWORK | $POWER | $TEMP | $VOL | $LOCALTIME"
+    xsetroot -name "$NETWORK | $POWER | $TEMP | $VOL | $BRIGHT | $LOCALTIME;$PLAYER"
     sleep 1s
 done &
 
