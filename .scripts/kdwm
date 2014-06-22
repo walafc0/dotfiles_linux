@@ -7,9 +7,14 @@ cd $DWM_D
 makepkg -g >> PKGBUILD
 makepkg -efi --noconfirm
 
-if [ ! -z DWM_PID ]; then
-  kill -9 $DWM_P
+if [ $? -eq 0 ]; then
+  if [ ! -z DWM_PID ]; then
+    kill -9 $DWM_P
+  fi
+  cd $HOME
+  exit 0
+else
+  echo "Error :("
+  cd $HOME
+  exit 1
 fi
-
-cd $HOME
-exit

@@ -1,10 +1,7 @@
 #!/bin/bash
 
-ID=
-HOST=ssh.ufr-info-p6.jussieu.fr
-
 if [ -z $DISPLAY ]; then
-  ssh -X $ID@$HOST
+  ssh -X gateway
 else
-  urxvt -e ssh -X $ID@$HOST
+  urxvt -e ssh -X gateway
 fi

@@ -2,10 +2,16 @@
 
 CONF_DIR=/etc/openvpn/$HOSTNAME
 
-if [ "$1" = "fac" ]; then
-    CONF_FILE=client_fac.conf
+if ! screen -r -D vpn >/dev/null ; then
+  sudo screen -US vpn $0 $1
 else
-    CONF_FILE=client.conf
+  if [ "$1" = "fac" ]; then
+      CONF_FILE=client_fac.conf
+  else
+      CONF_FILE=client.conf
+  fi
+  cd $CONF_DIR
+  sudo openvpn $CONF_FILE
 fi
 
-sudo urxvt -T trash -e sudo screen -US vpn -d -m $SCRIPTS_DIR/vpn_cmd $CONF_FILE
+# sudo urxvt -T trash -e sudo screen -US vpn -d -m $SCRIPTS_DIR/vpn_cmd $CONF_FILE

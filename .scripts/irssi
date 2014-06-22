@@ -1,15 +1,12 @@
-ID=
-SRV=walafc0.org
-GAT_ID=
-GAT=ssh.ufr-info-p6.jussieu.fr
+ID=irssi
 
 if [ -z $DISPLAY ]; then
-  ssh $ID@$SRV -t screen -rd
+  ssh -l $ID kim -t screen -rd
 else
   if [ "$1" = "fac" ]; then
-    urxvt -title irssi -e ssh $GAT_ID@$GAT -t ssh $ID@$SRV -t screen -rd &
+    urxvt -title $ID -e ssh gateway -t ssh -l $ID kim -t screen -rd &
   else
-    urxvt -title irssi -e ssh $ID@$SRV -t screen -rd &
+    urxvt -title $ID -e ssh -l $ID kim -t screen -rd &
   fi
 fi
 

@@ -5,9 +5,25 @@ ESSID=FreeWifi
 # MAC=56:ab:4b:06:1a:99
 MAC=76:68:B0:7C:37:25
 
-chromium &> /dev/null &
+if [ -z "$(pidof chromium)" ]; then
+  chromium &> /dev/null &
+fi
+
+if ! ifconfig | grep $WLAN &> /dev/null; then
+  echo "$WLAN down. Exiting"
+  exit 1
+fi
+
 sudo killall dhcpcd
 sudo iwconfig $WLAN essid $ESSID key open ap $MAC
 sleep 1
 sudo dhcpcd -4 $WLAN -C 10-wpa_supplicant -d 
-sudo screen -US vpn
+
+if [ $? -eq 0 ]; then
+  cd /etc/openvpn/Athena
+  sudo screen -US vpn
+  exit 0
+else
+  echo "No IP address :-("
+  exit 1
+fi

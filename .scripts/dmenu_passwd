@@ -1,3 +1,3 @@
 #! /bin/bash
 
-dmenu -p "$1" -nf '#051121' -nb '#051121' -sf black -sb '#9BB5C3' <&- && echo
+dmenu -p "$1" -fn 'Inconsolata-9' -nf '#051121' -nb '#051121' -sf black -sb '#9BB5C3' <&- && echo
