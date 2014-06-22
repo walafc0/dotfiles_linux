@@ -2,9 +2,12 @@
 
 WLAN=wlp2s0
 ESSID=FreeWifi
-MAC=56:ab:4b:06:1a:99
+# MAC=56:ab:4b:06:1a:99
+MAC=76:68:B0:7C:37:25
 
+chromium &> /dev/null &
 sudo killall dhcpcd
 sudo iwconfig $WLAN essid $ESSID key open ap $MAC
 sleep 1
 sudo dhcpcd -4 $WLAN -C 10-wpa_supplicant -d 
+sudo screen -US vpn
