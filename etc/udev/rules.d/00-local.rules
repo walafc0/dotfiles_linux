@@ -1,0 +1,2 @@
+KERNEL=="pcmC[D0-9cp]*", ACTION=="add", PROGRAM="/bin/sh -c 'K=%k; K=$${K#pcmC}; K=$${K%%D*}; echo defaults.ctl.card AUDIO > /home/walafc0/.asoundrc.hotplug; echo defaults.pcm.card AUDIO >>/home/walafc0/.asoundrc.hotplug'"
+KERNEL=="pcmC[D0-9cp]*", ACTION=="remove", PROGRAM="/bin/sh -c 'echo defaults.ctl.card Intel > /home/walafc0/.asoundrc.hotplug; echo defaults.pcm.card Intel >>/home/walafc0/.asoundrc.hotplug'"
