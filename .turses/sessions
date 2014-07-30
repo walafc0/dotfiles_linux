@@ -1,6 +1,0 @@
-[defaults]
-visible = home
-buffers = mentions, favorites, messages, own_tweets
-
-[walafc0]
-visible = home, mentions
