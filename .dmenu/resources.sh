@@ -16,6 +16,6 @@ MEM="Memory: $MEM"
 FSPACE="Free space: $(echo $FSPACE)b"
 UP="Uptime: $UP"
 
-FINAL="$CPU | $MEM | $FSPACE | $UP"
+FINAL="$CPU | $MEM | $FSPACE | $UP "
 
 echo $FINAL

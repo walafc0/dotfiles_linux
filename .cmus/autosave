@@ -72,14 +72,15 @@ set replaygain_preamp=6.000000
 set resume=false
 set scroll_offset=2
 set set_term_title=true
-set show_current_bitrate=false
+set show_current_bitrate=true
 set show_hidden=false
-set show_remaining_time=false
+set show_remaining_time=true
 set shuffle=false
 set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false
 set softvol_state=0 0
+set status_display_program=
 set wrap_search=true
 bind browser backspace browser-up
 bind browser i toggle show_hidden

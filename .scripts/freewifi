@@ -2,7 +2,6 @@
 
 WLAN=wlp2s0
 ESSID=FreeWifi
-# MAC=56:ab:4b:06:1a:99
 MAC=76:68:B0:7C:37:25
 
 if [ -z "$(pidof chromium)" ]; then
@@ -15,6 +14,9 @@ if ! ifconfig | grep $WLAN &> /dev/null; then
 fi
 
 sudo killall dhcpcd
+if [ "$1" = "ext" ]; then
+  MAC=14:0C:76:EE:6B:29
+fi
 sudo iwconfig $WLAN essid $ESSID key open ap $MAC
 sleep 1
 sudo dhcpcd -4 $WLAN -C 10-wpa_supplicant -d 

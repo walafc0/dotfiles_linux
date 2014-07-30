@@ -33,15 +33,15 @@ static const Rule rules[] = {
 	{ NULL,      "gpicview",  NULL,       1 << 1,       False,       -1 },
         { NULL, NULL,       "root@localgh0st",1 << 2,       False,       -1 },
 	{ NULL, "qemu-system-x86_64", NULL,   1 << 5,       True,        -1 },
+	{ NULL, "qemu-system-i386", NULL,     1 << 5,       True,        -1 },
 	{ NULL, "pcsxr",          NULL,       1 << 5,       True,        -1 },
 	{ NULL,	      NULL,       "irssi",    1 << 6,       False,       -1 },
 	{ NULL,	      NULL,       "turses",   1 << 6,       False,       -1 },
 	{ NULL,       NULL,       "cmus",     1 << 7,       False,       -1 },
-	{ "Adl",      NULL,       NULL,     1 << 7,       False,       -1 },
+	{ "Adl",      NULL,       NULL,       1 << 7,       False,       -1 },
         { "MPlayer",  NULL,       NULL,       1 << 7,       True,        -1 },
 	{ NULL,       "pokerth",  NULL,       1 << 7,       True,        -1 },
 	{ "Easytag",  NULL,       NULL,       1 << 7,       False,       -1 },
-	{ NULL,       NULL,       "tunnel",   1 << 8,       False,       -1 },
 	{ NULL,       NULL,       "trash",    1 << 8,       False,       -1 },
 };
 
@@ -130,6 +130,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	/* Lock screen */
 	{ MODKEY,			XK_s,	   spawn,	   {.v = slockcmd } },
+
 
 #define PLAYPAUSE_KEY 0x1008ff2f
 #define MUTE_KEY 0x1008ff12 

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if [ ! -z $DISPLAY ]; then
-  tsocks uzbl-tabbed
-fi

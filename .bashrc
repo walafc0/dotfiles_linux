@@ -114,7 +114,12 @@ fi
 
 function maketar()
 {
-  tar cvzf "${1%%/}.tar.gz"  "${1%%/}/";
+  tar czf "${1%%/}.tar.gz"  "${1%%/}/";
+}
+
+function makebz2()
+{
+  tar cjf "${1%%/}.tar.bz2"  "${1%%/}/";
 }
 
 export TERM=rxvt-256color

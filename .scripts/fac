@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo -n "Machine to reach: "
+read PC
+
+if [ -z $DISPLAY ]; then
+  ssh -X gateway -t ssh -X ari-31-201-$PC
+else
+  urxvt -e ssh -X gateway -t ssh -X ari-31-201-$PC &
+fi

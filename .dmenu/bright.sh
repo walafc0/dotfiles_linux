@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LCD=$(acpi -V | grep LCD |awk '{print $4}')
-LCD_T=$(acpi -V | grep LCD |awk '{print $6}')
+BRIGHT=$(xbacklight | cut -d'.' -f1)
+BRIGHT="Brightness:$BRIGHT%"
 
-BRIGHT=LCD*100/
+echo $BRIGHT
